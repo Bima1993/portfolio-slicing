@@ -11,18 +11,37 @@ export function HeroSection() {
       id="home"
       className="relative isolate overflow-hidden bg-[#06071f] text-white"
     >
-      <div className="absolute inset-0 bg-[linear-gradient(120deg,#041d35_0%,#071044_42%,#10061f_100%)]" />
-      <div className="absolute inset-0 opacity-35 [background-image:linear-gradient(rgba(255,255,255,.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.1)_1px,transparent_1px)] [background-size:40px_40px]" />
-      <div className="absolute inset-x-0 bottom-0 h-52 bg-[linear-gradient(180deg,transparent_0%,rgba(22,139,255,.34)_100%)]" />
+      <div className="absolute inset-0 bg-[#080724]" />
+      <div className="pointer-events-none absolute -left-[36rem] top-28 z-0 h-[72rem] w-[72rem] rounded-full bg-[rgba(0,234,255,1)] opacity-100 blur-[320px] md:-left-[40rem] md:top-36 md:h-[82rem] md:w-[82rem]" />
+      <div className="pointer-events-none absolute -right-72 top-40 z-0 h-[42rem] w-[42rem] rounded-full bg-[#4d3589] opacity-70 blur-[130px] md:-right-80 md:top-52 md:h-[54rem] md:w-[54rem]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35rem] bg-[linear-gradient(180deg,transparent_0%,rgba(0,234,255,.42)_55%,rgba(186,218,255,.82)_100%)]" />
+      <Image
+        src="/images/hero/top-pattern.svg"
+        alt=""
+        width={1440}
+        height={405}
+        priority
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[45%] w-full select-none object-cover object-top opacity-26 md:h-[46%] md:opacity-46"
+      />
+      <Image
+        src="/images/hero/bottom-pattern.svg"
+        alt=""
+        width={1440}
+        height={405}
+        priority
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%] w-full select-none object-cover object-bottom opacity-36 md:h-[58%] md:opacity-48"
+      />
 
-      <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-full content-start gap-7 px-4 pb-20 pt-24 sm:px-6 md:min-h-[820px] md:max-w-7xl md:grid-cols-[minmax(0,1fr)_minmax(340px,0.9fr)] md:content-center md:items-center md:gap-10 md:px-8 md:pb-28 md:pt-28 lg:min-h-[900px] lg:gap-14">
+      <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-full content-start gap-7 px-4 pb-20 pt-24 sm:px-6 md:min-h-[980px] md:max-w-[1184px] md:grid-cols-[minmax(0,0.92fr)_minmax(560px,1fr)] md:content-center md:items-center md:gap-4 md:px-0 md:pb-20 md:pt-28 lg:min-h-[1024px]">
         <motion.div
-          className="w-full min-w-0 max-w-xl pb-0 md:pb-10"
+          className="w-full min-w-0 max-w-[640px] pb-0 md:pb-12"
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <h1 className="max-w-[361px] text-[39px] font-black leading-[1.02] tracking-normal text-white sm:max-w-xl sm:text-[56px] md:text-[72px] lg:text-[86px]">
+          <h1 className="max-w-[361px] text-[39px] font-black leading-[1.06] tracking-normal text-white sm:max-w-xl sm:text-[56px] md:max-w-[640px] md:text-[64px] lg:text-[64px]">
             <span className="mb-1 inline-block bg-[#f7a51b] px-1.5 text-[#080717]">
               Crafting
             </span>
@@ -30,37 +49,32 @@ export function HeroSection() {
             <span className="block">Line at a Time</span>
           </h1>
 
-          <p className="mt-5 max-w-sm text-sm font-medium leading-7 text-white/72 sm:max-w-md sm:text-base md:mt-7">
+          <p className="mt-8 max-w-sm text-sm font-medium leading-7 text-white/84 sm:max-w-[540px] sm:text-base md:mt-9 md:text-xl md:leading-9">
             Build fast, accessible, and responsive web experiences that users
             love.
           </p>
 
           <Button
             asChild
-            className="mt-7 h-11 w-full max-w-[361px] rounded-full bg-white text-sm font-semibold text-[#080717] shadow-[0_18px_45px_rgba(0,0,0,.22)] hover:bg-white/90 sm:w-52 md:mt-10"
+            className="mt-7 h-11 w-full max-w-[361px] rounded-full bg-white text-sm font-semibold text-[#080717] shadow-[0_18px_45px_rgba(0,0,0,.22)] hover:bg-white/90 sm:w-52 md:mt-14 md:h-11 md:w-[300px] md:max-w-none md:text-base"
           >
             <a href="#contact">Say Hello</a>
           </Button>
         </motion.div>
 
-        <motion.div
-          className="relative mx-auto flex w-full max-w-[330px] justify-center sm:max-w-[430px] md:max-w-none"
-          initial={false}
-          animate={{ y: [0, -8, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        >
+        <div className="relative mx-auto flex w-full max-w-[330px] justify-center sm:max-w-[430px] md:mx-0 md:max-w-none md:translate-y-36 md:justify-end">
           <Image
             src="/images/hero/Hero-Image.png"
             alt="Smiling developer character wearing a blue cap"
             width={760}
             height={760}
             priority
-            className="h-auto w-full max-w-[330px] select-none object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.35)] sm:max-w-[430px] md:max-w-[560px] lg:max-w-[640px]"
+            className="h-auto w-full max-w-[330px] select-none object-contain drop-shadow-[0_30px_80px_rgba(0,0,0,.35)] sm:max-w-[430px] md:w-[740px] md:max-w-none lg:w-[760px]"
           />
-        </motion.div>
+        </div>
       </div>
 
-      <div className="absolute -bottom-16 left-1/2 z-20 h-28 w-[150%] -translate-x-1/2 rounded-[50%_50%_0_0] bg-white md:-bottom-20 md:h-40" />
+      <div className="absolute -bottom-16 left-1/2 z-20 h-28 w-[150%] -translate-x-1/2 rounded-[50%_50%_0_0] bg-white md:-bottom-24 md:h-32" />
     </section>
   );
 }

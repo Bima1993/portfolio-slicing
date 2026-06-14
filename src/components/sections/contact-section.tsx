@@ -1,0 +1,115 @@
+import { Camera, Code2, Globe2, PenTool } from "lucide-react";
+import Image from "next/image";
+
+import { Button } from "@/components/ui/button";
+
+const socialLinks = [
+  { label: "Website", icon: Globe2 },
+  { label: "Gallery", icon: Camera },
+  { label: "Design", icon: PenTool },
+  { label: "Code", icon: Code2 },
+];
+
+export function ContactSection() {
+  return (
+    <footer
+      id="contact"
+      className="bg-[#070b12] px-4 py-16 text-white sm:px-6 md:py-24"
+    >
+      <div className="mx-auto grid max-w-[1184px] gap-12 md:grid-cols-[.9fr_1fr] md:items-start">
+        <div>
+          <a
+            href="#home"
+            className="inline-flex items-center gap-3"
+            aria-label="Edwin home"
+          >
+            <Image
+              src="/images/brand/Edwin-Avatar-Logo.png"
+              alt=""
+              width={40}
+              height={40}
+              className="size-10 rounded-full"
+            />
+            <span>
+              <span className="block text-sm font-extrabold">
+                Edwin Anderson
+              </span>
+              <span className="block text-xs font-medium text-white/52">
+                edwinanderson@gmail.com
+              </span>
+            </span>
+          </a>
+
+          <h2 className="mt-24 max-w-sm text-[28px] font-extrabold leading-tight sm:text-4xl md:mt-32">
+            Great results begin with clear ideas.
+          </h2>
+
+          <div className="mt-6 flex items-center gap-2">
+            {socialLinks.map(({ label, icon: Icon }) => (
+              <a
+                key={label}
+                href="#contact"
+                aria-label={label}
+                className="grid size-8 place-items-center rounded-full bg-[#2f8cff] text-white transition hover:bg-[#1677ee]"
+              >
+                <Icon className="size-4" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-xs font-semibold text-white/52">Contact</p>
+          <h2 className="mt-2 text-[26px] font-extrabold leading-tight sm:text-4xl">
+            Start Your Next Project
+          </h2>
+
+          <form
+            action="mailto:edwinanderson@gmail.com"
+            className="mt-8 grid gap-5"
+            encType="text/plain"
+            method="post"
+          >
+            <label className="grid gap-2 text-sm font-semibold text-white/70">
+              Name
+              <input
+                name="name"
+                type="text"
+                placeholder="What's your full name..."
+                className="h-12 rounded-none border-0 border-b border-white/12 bg-transparent px-0 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#2f8cff]"
+              />
+            </label>
+
+            <label className="grid gap-2 text-sm font-semibold text-white/70">
+              Email
+              <input
+                name="email"
+                type="email"
+                placeholder="Where can I reach you?..."
+                className="h-12 rounded-none border-0 border-b border-white/12 bg-transparent px-0 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#2f8cff]"
+              />
+            </label>
+
+            <label className="grid gap-2 text-sm font-semibold text-white/70">
+              Message
+              <textarea
+                name="message"
+                placeholder="Tell me about your project or goal..."
+                rows={4}
+                className="resize-none rounded-none border-0 border-b border-white/12 bg-transparent px-0 py-3 text-sm text-white outline-none transition placeholder:text-white/28 focus:border-[#2f8cff]"
+              />
+            </label>
+
+            <Button className="mt-2 h-11 rounded-full bg-[#2f8cff] text-sm font-semibold text-white hover:bg-[#1677ee]">
+              Send Message
+            </Button>
+          </form>
+        </div>
+      </div>
+
+      <p className="mx-auto mt-16 max-w-[1184px] border-t border-white/8 pt-8 text-center text-xs text-white/32">
+        &copy; 2025 Edwin Anderson. All rights reserved.
+      </p>
+    </footer>
+  );
+}

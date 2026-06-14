@@ -22,7 +22,7 @@ export function SiteHeader() {
     <header className="absolute inset-x-0 top-0 z-50">
       <nav
         aria-label="Primary navigation"
-        className="mx-auto flex h-16 w-full max-w-full items-center justify-between px-4 sm:px-6 md:max-w-7xl lg:h-20 lg:px-8"
+        className="mx-auto flex h-16 w-full max-w-full items-center justify-between px-4 sm:px-6 md:max-w-[1184px] lg:h-16 lg:px-0"
       >
         <a
           href="#home"
@@ -37,10 +37,10 @@ export function SiteHeader() {
             className="size-8 rounded-full lg:size-10"
             priority
           />
-          <span className="text-[13px] lg:text-lg">Edwin</span>
+          <span className="text-[13px] lg:text-xl">Edwin</span>
         </a>
 
-        <div className="hidden items-center gap-9 text-sm font-medium text-white/68 md:flex">
+        <div className="hidden items-center gap-10 text-sm font-medium text-white/78 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}
@@ -54,7 +54,7 @@ export function SiteHeader() {
 
         <Button
           asChild
-          className="hidden h-11 min-w-40 rounded-full bg-white px-8 text-sm font-semibold text-[#080717] hover:bg-white/90 md:inline-flex"
+          className="hidden h-11 min-w-60 rounded-full bg-white px-8 text-base font-semibold text-[#080717] hover:bg-white/90 md:inline-flex"
         >
           <a href="#contact">Hire Me</a>
         </Button>
