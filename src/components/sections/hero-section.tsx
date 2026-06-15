@@ -11,7 +11,13 @@ export function HeroSection() {
       id="home"
       className="relative isolate overflow-hidden bg-[#06071f] text-white"
     >
-      <div className="absolute inset-0 bg-[#080724]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(120deg, rgba(0, 234, 255, 1) 0%, #0758b0 20%, #080724 52%, #10061f 100%)",
+        }}
+      />
       <div className="pointer-events-none absolute -left-[36rem] top-28 z-0 h-[72rem] w-[72rem] rounded-full bg-[rgba(0,234,255,1)] opacity-100 blur-[320px] md:-left-[40rem] md:top-36 md:h-[82rem] md:w-[82rem]" />
       <div className="pointer-events-none absolute -right-72 top-40 z-0 h-[42rem] w-[42rem] rounded-full bg-[#4d3589] opacity-70 blur-[130px] md:-right-80 md:top-52 md:h-[54rem] md:w-[54rem]" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35rem] bg-[linear-gradient(180deg,transparent_0%,rgba(0,234,255,.42)_55%,rgba(186,218,255,.82)_100%)]" />
@@ -34,9 +40,9 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[55%] w-full select-none object-cover object-bottom opacity-36 md:h-[58%] md:opacity-48"
       />
 
-      <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-full content-start gap-7 px-4 pb-20 pt-24 sm:px-6 md:min-h-[980px] md:max-w-[1184px] md:grid-cols-[minmax(0,0.92fr)_minmax(560px,1fr)] md:content-center md:items-center md:gap-4 md:px-0 md:pb-20 md:pt-28 lg:min-h-[1024px]">
+      <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-full content-between gap-7 px-4 pb-0 pt-24 sm:px-6 md:min-h-[980px] md:max-w-[1184px] md:grid-cols-[minmax(0,0.92fr)_minmax(560px,1fr)] md:content-stretch md:items-stretch md:gap-4 md:px-0 md:pt-28 lg:min-h-[1024px]">
         <motion.div
-          className="w-full min-w-0 max-w-[640px] pb-0 md:pb-12"
+          className="w-full min-w-0 max-w-[640px] pb-0 md:self-center md:pb-12"
           initial={false}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
@@ -62,7 +68,7 @@ export function HeroSection() {
           </Button>
         </motion.div>
 
-        <div className="relative mx-auto flex w-full max-w-[330px] justify-center sm:max-w-[430px] md:mx-0 md:max-w-none md:translate-y-36 md:justify-end">
+        <div className="relative mx-auto flex w-full max-w-[330px] self-end justify-center sm:max-w-[430px] md:mx-0 md:max-w-none md:self-end md:justify-end">
           <Image
             src="/images/hero/Hero-Image.png"
             alt="Smiling developer character wearing a blue cap"

@@ -26,14 +26,14 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section className="bg-white px-4 py-16 sm:px-6 md:py-24">
+    <section className="relative z-10 px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto max-w-[1184px]">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="text-[11px] font-semibold text-[#8c929f]">
+            <p className="flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
               Testimony
             </p>
-            <h2 className="mt-1 max-w-lg text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
+            <h2 className="mt-5 max-w-lg text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
               Built with Trust &amp; Collaboration
             </h2>
           </div>

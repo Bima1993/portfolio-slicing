@@ -34,29 +34,12 @@ const experiences = [
 
 export function TimelineSection() {
   return (
-    <section className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 md:py-24">
-      <Image
-        src="/images/timeline/Timeline-Vector.png"
-        alt=""
-        width={1137}
-        height={999}
-        aria-hidden="true"
-        className="pointer-events-none absolute -left-[28rem] top-56 z-0 hidden w-[54rem] max-w-none select-none md:block lg:-left-[34rem] lg:top-44 lg:w-[68rem]"
-      />
-      <Image
-        src="/images/timeline/Timeline-Vector.png"
-        alt=""
-        width={1137}
-        height={999}
-        aria-hidden="true"
-        className="pointer-events-none absolute -right-[26rem] top-[26rem] z-0 w-[42rem] max-w-none select-none md:hidden"
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1064px] text-center">
-        <p className="text-[11px] font-semibold text-[#8c929f]">
+    <section className="relative z-10 px-4 py-16 sm:px-6 md:py-24">
+      <div className="relative mx-auto max-w-[1064px] text-center">
+        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
           Work Experience
         </p>
-        <h2 className="mx-auto mt-1 max-w-2xl text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
+        <h2 className="mx-auto mt-5 max-w-2xl text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
           A timeline of companies and roles that helped shape my skills.
         </h2>
 

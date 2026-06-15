@@ -23,8 +23,10 @@ export function ProjectsSection() {
       className="bg-white px-4 py-16 text-center sm:px-6 md:py-24"
     >
       <div className="mx-auto max-w-[1184px]">
-        <p className="text-[11px] font-semibold text-[#8c929f]">Portfolio</p>
-        <h2 className="mx-auto mt-1 max-w-2xl text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
+        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
+          Portfolio
+        </p>
+        <h2 className="mx-auto mt-5 max-w-2xl text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
           Built with Passion, Shipped with Precision
         </h2>
 

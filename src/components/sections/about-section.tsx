@@ -1,74 +1,143 @@
-import {
-  ArrowUpRight,
-  Camera,
-  Code2,
-  Globe2,
-  Mail,
-  PenTool,
-} from "lucide-react";
+import { ChevronRight, Mail, Music2 } from "lucide-react";
 import Image from "next/image";
 
 const socialLinks = [
-  { label: "Website", icon: Globe2 },
-  { label: "Gallery", icon: Camera },
-  { label: "Design", icon: PenTool },
-  { label: "Code", icon: Code2 },
-];
+  { label: "Facebook", mark: "facebook" },
+  { label: "Instagram", mark: "instagram" },
+  { label: "LinkedIn", mark: "linkedin" },
+  { label: "TikTok", mark: "tiktok" },
+] as const;
+
+const technologyOrbit = [
+  {
+    src: "/images/brand/Css-Logo.svg",
+    alt: "CSS",
+    position:
+      "left-[-0.75rem] top-[55%] -translate-y-1/2 sm:left-[2%] lg:left-[-0.25rem]",
+  },
+  {
+    src: "/images/brand/JS-Logo.svg",
+    alt: "JavaScript",
+    position: "left-[15%] top-[34%]",
+  },
+  {
+    src: "/images/brand/TS-Logo.svg",
+    alt: "TypeScript",
+    position: "left-1/2 top-[27%] -translate-x-1/2",
+  },
+  {
+    src: "/images/brand/HTML-Logo.svg",
+    alt: "HTML",
+    position: "right-[15%] top-[34%]",
+  },
+  {
+    src: "/images/brand/React-Logo.svg",
+    alt: "React",
+    position:
+      "right-[-0.75rem] top-[55%] -translate-y-1/2 sm:right-[2%] lg:right-[-0.25rem]",
+  },
+] as const;
+
+type SocialMark = (typeof socialLinks)[number]["mark"];
+
+function SocialIcon({ mark }: { mark: SocialMark }) {
+  if (mark === "instagram") {
+    return (
+      <svg
+        aria-hidden="true"
+        className="size-4"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <rect
+          width="14"
+          height="14"
+          x="5"
+          y="5"
+          rx="4"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
+        <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="2" />
+        <circle cx="16.4" cy="7.7" r="1" fill="currentColor" />
+      </svg>
+    );
+  }
+
+  if (mark === "linkedin") {
+    return <span className="text-[13px] font-extrabold leading-none">in</span>;
+  }
+
+  if (mark === "tiktok") {
+    return <Music2 className="size-4" aria-hidden="true" />;
+  }
+
+  return <span className="text-[20px] font-extrabold leading-none">f</span>;
+}
 
 export function AboutSection() {
   return (
     <section
       id="about"
-      className="relative z-30 bg-white px-4 pb-16 pt-8 text-center sm:px-6 md:pb-24 md:pt-12"
+      className="relative z-30 bg-white px-4 pb-16 pt-12 text-center sm:px-6 md:pb-24 md:pt-14"
     >
-      <p className="text-[11px] font-semibold text-[#8c929f]">About</p>
-      <h2 className="mx-auto mt-1 max-w-xs text-[22px] font-extrabold leading-tight text-[#171922] sm:max-w-lg sm:text-3xl md:text-[34px]">
+      <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#8c929f]">
+        About
+      </p>
+      <h2 className="mx-auto mt-5 max-w-[780px] text-[26px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[40px]">
         The Developer Behind the Pixel
       </h2>
 
-      <div className="mx-auto mt-8 grid max-w-[1184px] gap-5 text-left md:grid-cols-[1.1fr_.92fr_5.5rem] md:grid-rows-[18rem_18rem]">
-        <article className="overflow-hidden rounded-[8px] bg-[#2f8cff] p-6 text-white shadow-[0_18px_45px_rgba(47,140,255,.28)] md:p-7">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
+      <div className="mx-auto mt-10 grid max-w-[1184px] gap-5 text-left lg:grid-cols-12 lg:grid-rows-[27.5rem_31.5rem]">
+        <article className="relative overflow-hidden rounded-[8px] bg-[#2f8cff] p-6 text-white shadow-[0_18px_45px_rgba(47,140,255,.28)] sm:p-8 lg:col-span-8 lg:p-10">
+          <div className="pointer-events-none absolute inset-0 opacity-[0.24] [background-image:radial-gradient(rgba(255,255,255,.5)_2px,transparent_2px)] [background-size:16px_16px]" />
+          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(12,74,183,.52)_0%,rgba(47,140,255,.92)_62%,rgba(47,140,255,1)_100%)]" />
+
+          <div className="relative flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex items-center gap-4">
               <Image
                 src="/images/brand/Edwin-Avatar-Logo.png"
                 alt=""
-                width={40}
-                height={40}
-                className="size-10 rounded-full"
+                width={72}
+                height={72}
+                className="size-16 rounded-full sm:size-[72px]"
               />
               <div>
-                <h3 className="text-sm font-bold">Edwin Anderson</h3>
-                <p className="text-xs text-white/78">edwinanderson@gmail.com</p>
+                <h3 className="text-lg font-bold leading-tight">
+                  Edwin Anderson
+                </h3>
+                <p className="mt-1 text-sm font-medium text-white/86 sm:text-base">
+                  edwinanderson@email.com
+                </p>
               </div>
             </div>
 
-            <div className="hidden items-center gap-2 sm:flex">
-              {socialLinks.map(({ label, icon: Icon }) => (
+            <div className="flex items-center gap-3">
+              {socialLinks.map(({ label, mark }) => (
                 <a
                   key={label}
                   href="#contact"
                   aria-label={label}
-                  className="inline-flex size-7 items-center justify-center rounded-full bg-white/14 text-white transition hover:bg-white/24"
+                  className="inline-flex size-10 items-center justify-center rounded-full border border-white/72 bg-white/6 text-white transition hover:bg-white/18"
                 >
-                  <Icon className="size-3.5" aria-hidden="true" />
+                  <SocialIcon mark={mark} />
                 </a>
               ))}
             </div>
           </div>
 
-          <div className="mt-14 md:mt-16">
-            <h3 className="max-w-md text-2xl font-extrabold leading-tight md:text-[26px]">
+          <div className="relative mt-20 max-w-[34rem] sm:mt-24 lg:mt-28">
+            <h3 className="text-[30px] font-extrabold leading-tight sm:text-[38px] lg:text-[40px]">
               Pushing boundaries through innovation
             </h3>
-            <p className="mt-3 max-w-lg text-sm leading-6 text-white/78">
-              I create frontend solutions that not only look great but also load
-              fast, scale everywhere, and work well.
+            <p className="mt-5 text-base leading-8 text-white/88">
+              I create frontend solutions that not only look good but also load
+              fast, work everywhere, and scale well.
             </p>
           </div>
         </article>
 
-        <div className="flex min-h-64 items-end justify-center overflow-hidden rounded-[8px] bg-[#ffe4bd] md:min-h-0">
+        <div className="flex min-h-[22rem] items-end justify-center overflow-hidden rounded-[8px] bg-[#ffe4bd] lg:col-span-4 lg:min-h-0">
           <Image
             src="/images/about/Developer-Image-2.png"
             alt="Developer character waving"
@@ -78,63 +147,76 @@ export function AboutSection() {
           />
         </div>
 
-        <article className="overflow-hidden rounded-[8px] bg-[#080717] p-5 text-white md:row-start-2">
-          <div className="flex items-center justify-between gap-4">
+        <article className="overflow-hidden rounded-[8px] bg-[#080717] p-6 text-white shadow-[0_18px_45px_rgba(8,7,23,.18)] sm:p-8 lg:col-span-5 lg:row-start-2">
+          <div className="flex items-start justify-between gap-4">
             <div>
-              <h3 className="text-sm font-bold">Check My Portfolio</h3>
-              <p className="mt-1 text-xs leading-5 text-white/62">
-                Explore selected works and real-world projects.
+              <h3 className="text-xl font-bold leading-tight">
+                Check My Portfolio
+              </h3>
+              <p className="mt-3 text-sm leading-6 text-white/72 sm:text-base">
+                Explore selected works and real-world projects
               </p>
             </div>
-            <ArrowUpRight className="size-5 text-white/70" aria-hidden="true" />
+            <a
+              href="#projects"
+              aria-label="Open portfolio projects"
+              className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/14 bg-white/4 text-white transition hover:bg-white/12"
+            >
+              <ChevronRight className="size-5" aria-hidden="true" />
+            </a>
           </div>
-          <div className="mt-5 overflow-hidden rounded-[8px] bg-white/6">
+
+          <div className="relative mt-8 h-[20rem] overflow-hidden rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,.9),rgba(255,255,255,.72)_42%,rgba(118,53,230,.92)_100%)] sm:h-[24rem] lg:h-[20rem]">
+            <Image
+              src="/images/projects/Portfolio-Image-2.png"
+              alt=""
+              width={373}
+              height={373}
+              aria-hidden="true"
+              className="absolute -right-8 top-0 h-[82%] w-[72%] rounded-[6px] object-contain opacity-[0.92]"
+            />
             <Image
               src="/images/projects/Portfolio-Image-3.png"
               alt="Portfolio project preview"
               width={373}
               height={373}
-              className="h-auto w-full object-cover"
+              className="absolute bottom-0 left-5 h-[86%] w-[73%] rounded-[6px] object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,.24)] sm:left-8"
             />
           </div>
         </article>
 
-        <article className="relative flex min-h-56 flex-col items-center justify-center overflow-hidden rounded-[8px] bg-[#ffb441] px-6 py-7 text-center text-[#171922] md:row-start-2 md:min-h-0">
-          <div className="absolute -bottom-20 left-1/2 size-80 -translate-x-1/2 rounded-full bg-[#ffa52d]" />
-          <div className="absolute inset-x-8 bottom-10 h-28 rounded-t-full border border-white/22" />
-          <div className="relative grid grid-cols-5 items-center gap-3">
-            {[
-              ["/images/brand/Css-Logo.svg", "CSS"],
-              ["/images/brand/JS-Logo.svg", "JavaScript"],
-              ["/images/brand/TS-Logo.svg", "TypeScript"],
-              ["/images/brand/HTML-Logo.svg", "HTML"],
-              ["/images/brand/React-Logo.svg", "React"],
-            ].map(([src, alt]) => (
-              <span
-                key={alt}
-                className="inline-flex size-11 items-center justify-center rounded-full bg-white shadow-[0_10px_25px_rgba(0,0,0,.14)]"
-              >
-                <Image
-                  src={src}
-                  alt={alt}
-                  width={28}
-                  height={28}
-                  className="size-7 object-contain"
-                />
-              </span>
-            ))}
-          </div>
-          <h3 className="relative mt-8 max-w-[13rem] text-xl font-extrabold leading-tight">
+        <article className="relative min-h-[28rem] overflow-hidden rounded-[8px] bg-[#ffb441] text-center text-[#171922] lg:col-span-5 lg:row-start-2 lg:min-h-0">
+          <div className="absolute left-1/2 top-[43%] size-[36rem] -translate-x-1/2 rounded-full bg-[#ffa33b]" />
+          <div className="absolute left-1/2 top-[52%] size-[29rem] -translate-x-1/2 rounded-full bg-[#ffc06a]" />
+          <div className="absolute left-1/2 top-[61%] size-[21rem] -translate-x-1/2 rounded-full bg-[#ffd59c]" />
+          <div className="absolute left-1/2 top-[69%] size-[13rem] -translate-x-1/2 rounded-full bg-[#ffe1bb]" />
+
+          {technologyOrbit.map(({ src, alt, position }) => (
+            <span
+              key={alt}
+              className={`absolute z-10 inline-flex size-[72px] items-center justify-center rounded-full bg-[#fff0df] shadow-[0_18px_40px_rgba(143,77,21,.16)] ${position}`}
+            >
+              <Image
+                src={src}
+                alt={alt}
+                width={44}
+                height={44}
+                className="size-11 object-contain"
+              />
+            </span>
+          ))}
+
+          <h3 className="absolute left-1/2 top-[57%] z-10 w-[17rem] -translate-x-1/2 text-[26px] font-extrabold leading-tight sm:text-[28px]">
             Built with 10+ Trusted Technologies
           </h3>
         </article>
 
         <a
-          href="mailto:edwinanderson@gmail.com"
+          href="mailto:edwinanderson@email.com"
           aria-label="Email Edwin Anderson"
-          className="flex min-h-20 items-center justify-center rounded-[8px] bg-[#2f8cff] text-white shadow-[0_18px_45px_rgba(47,140,255,.24)] transition hover:bg-[#1677ee] md:row-start-2 md:min-h-0"
+          className="flex min-h-32 items-center justify-center rounded-[8px] bg-[#2f8cff] text-white shadow-[0_18px_45px_rgba(47,140,255,.24)] transition hover:bg-[#1677ee] lg:col-span-2 lg:row-start-2 lg:min-h-0"
         >
-          <Mail className="size-7" aria-hidden="true" />
+          <Mail className="size-9 fill-white/12" aria-hidden="true" />
         </a>
       </div>
     </section>
