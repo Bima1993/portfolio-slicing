@@ -18,8 +18,9 @@ const messagePopups = {
   },
   success: {
     image: "/images/contact/success-3d-envelope.png",
-    title: "Got Your Message!",
-    description: "Really appreciate you reaching out. I'll be in touch soon.",
+    title: "Message Ready to Send",
+    description:
+      "Your email client has been opened with the message draft. Please send it from there.",
     buttonLabel: "Back to Home",
   },
 };
@@ -34,6 +35,17 @@ export function ContactSection() {
       setMessageStatus("failed");
       return;
     }
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const subject = encodeURIComponent(`Portfolio inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    );
+
+    window.location.href = `mailto:edwinanderson@gmail.com?subject=${subject}&body=${body}`;
 
     event.currentTarget.reset();
     setMessageStatus("success");

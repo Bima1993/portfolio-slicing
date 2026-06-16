@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
@@ -41,11 +38,8 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 mx-auto grid min-h-[760px] w-full max-w-full content-between gap-7 px-4 pb-0 pt-24 sm:px-6 md:min-h-[980px] md:max-w-[1184px] md:grid-cols-[minmax(0,0.92fr)_minmax(560px,1fr)] md:content-stretch md:items-stretch md:gap-4 md:px-0 md:pt-28 lg:min-h-[1024px]">
-        <motion.div
+        <div
           className="w-full min-w-0 max-w-[640px] pb-0 md:self-center md:pb-12"
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
         >
           <h1 className="max-w-[361px] text-[35px] font-black leading-[1.08] tracking-normal text-white sm:max-w-xl sm:text-[56px] md:max-w-[640px] md:text-[64px] md:leading-[1.06] lg:text-[64px]">
             <span className="mb-1 inline-block bg-[#f7a51b] px-1.5 text-[#080717]">
@@ -66,7 +60,7 @@ export function HeroSection() {
           >
             <a href="#contact">Say Hello</a>
           </Button>
-        </motion.div>
+        </div>
 
         <div className="relative mx-auto flex w-full max-w-[330px] self-end justify-center sm:max-w-[430px] md:mx-0 md:max-w-none md:self-end md:justify-end">
           <Image

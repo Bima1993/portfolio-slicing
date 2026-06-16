@@ -1,4 +1,3 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 
 const projects = [
@@ -48,23 +47,6 @@ export function ProjectsSection() {
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-8 flex items-center justify-center gap-3">
-          <button
-            type="button"
-            aria-label="Previous project"
-            className="grid size-8 place-items-center rounded-full border border-[#dfe5ee] text-[#7b8491] transition hover:border-[#2f8cff] hover:text-[#2f8cff]"
-          >
-            <ChevronLeft className="size-4" aria-hidden="true" />
-          </button>
-          <button
-            type="button"
-            aria-label="Next project"
-            className="grid size-8 place-items-center rounded-full border border-[#dfe5ee] text-[#7b8491] transition hover:border-[#2f8cff] hover:text-[#2f8cff]"
-          >
-            <ChevronRight className="size-4" aria-hidden="true" />
-          </button>
         </div>
       </div>
     </section>

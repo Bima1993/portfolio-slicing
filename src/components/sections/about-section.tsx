@@ -1,7 +1,8 @@
-import { ChevronRight, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Image from "next/image";
 
 import { socialLinks } from "@/components/icons/social-icons";
+import { AboutPortfolioCarousel } from "@/components/sections/about-portfolio-carousel";
 
 const technologyOrbit = [
   {
@@ -106,43 +107,7 @@ export function AboutSection() {
         </div>
 
         <div className="mt-5 grid gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_140px] lg:grid-rows-[31.5rem]">
-          <article className="overflow-hidden rounded-[8px] bg-[#080717] p-6 text-white shadow-[0_18px_45px_rgba(8,7,23,.18)] sm:p-8 lg:h-full">
-            <div className="flex items-start justify-between gap-4">
-              <div>
-                <h3 className="text-xl font-bold leading-tight">
-                  Check My Portfolio
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-white/72 sm:text-base">
-                  Explore selected works and real-world projects
-                </p>
-              </div>
-              <a
-                href="#projects"
-                aria-label="Open portfolio projects"
-                className="inline-flex size-11 shrink-0 items-center justify-center rounded-full border border-white/14 bg-white/4 text-white transition hover:bg-white/12"
-              >
-                <ChevronRight className="size-5" aria-hidden="true" />
-              </a>
-            </div>
-
-            <div className="relative mt-8 h-[20rem] overflow-hidden rounded-[8px] bg-[linear-gradient(135deg,rgba(255,255,255,.9),rgba(255,255,255,.72)_42%,rgba(118,53,230,.92)_100%)] sm:h-[24rem] lg:h-[20rem]">
-              <Image
-                src="/images/projects/Portfolio-Image-2.png"
-                alt=""
-                width={373}
-                height={373}
-                aria-hidden="true"
-                className="absolute -right-8 top-0 h-[82%] w-[72%] rounded-[6px] object-contain opacity-[0.92]"
-              />
-              <Image
-                src="/images/projects/Portfolio-Image-3.png"
-                alt="Portfolio project preview"
-                width={373}
-                height={373}
-                className="absolute bottom-0 left-5 h-[86%] w-[73%] rounded-[6px] object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,.24)] sm:left-8"
-              />
-            </div>
-          </article>
+          <AboutPortfolioCarousel />
 
           <article className="relative aspect-square min-h-[22.5rem] overflow-hidden rounded-[24px] bg-[linear-gradient(180deg,#f8bd4b_0%,#ffad38_43%,#ff8b13_100%)] text-center text-[#12151d] lg:h-full lg:min-h-0 lg:aspect-auto">
             <div className="absolute left-1/2 top-[84%] size-[128%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#ffbd68]" />
