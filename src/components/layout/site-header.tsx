@@ -59,15 +59,17 @@ export function SiteHeader() {
           <a href="#contact">Hire Me</a>
         </Button>
 
-        <button
-          type="button"
-          aria-label="Open navigation menu"
-          aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen(true)}
-          className="mobile-menu-trigger"
-        >
-          <Menu className="size-5" aria-hidden="true" />
-        </button>
+        {!isMenuOpen ? (
+          <button
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen(true)}
+            className="mobile-menu-trigger"
+          >
+            <Menu className="size-5" aria-hidden="true" />
+          </button>
+        ) : null}
       </nav>
 
       <AnimatePresence>

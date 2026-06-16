@@ -1,12 +1,7 @@
-import { ChevronRight, Mail, Music2 } from "lucide-react";
+import { ChevronRight, Mail } from "lucide-react";
 import Image from "next/image";
 
-const socialLinks = [
-  { label: "Facebook", mark: "facebook" },
-  { label: "Instagram", mark: "instagram" },
-  { label: "LinkedIn", mark: "linkedin" },
-  { label: "TikTok", mark: "tiktok" },
-] as const;
+import { socialLinks } from "@/components/icons/social-icons";
 
 const technologyOrbit = [
   {
@@ -37,43 +32,6 @@ const technologyOrbit = [
       "right-[-0.75rem] top-[55%] -translate-y-1/2 sm:right-[2%] lg:right-[-0.25rem]",
   },
 ] as const;
-
-type SocialMark = (typeof socialLinks)[number]["mark"];
-
-function SocialIcon({ mark }: { mark: SocialMark }) {
-  if (mark === "instagram") {
-    return (
-      <svg
-        aria-hidden="true"
-        className="size-4"
-        fill="none"
-        viewBox="0 0 24 24"
-      >
-        <rect
-          width="14"
-          height="14"
-          x="5"
-          y="5"
-          rx="4"
-          stroke="currentColor"
-          strokeWidth="2"
-        />
-        <circle cx="12" cy="12" r="3.2" stroke="currentColor" strokeWidth="2" />
-        <circle cx="16.4" cy="7.7" r="1" fill="currentColor" />
-      </svg>
-    );
-  }
-
-  if (mark === "linkedin") {
-    return <span className="text-[13px] font-extrabold leading-none">in</span>;
-  }
-
-  if (mark === "tiktok") {
-    return <Music2 className="size-4" aria-hidden="true" />;
-  }
-
-  return <span className="text-[20px] font-extrabold leading-none">f</span>;
-}
 
 export function AboutSection() {
   return (
@@ -113,14 +71,14 @@ export function AboutSection() {
             </div>
 
             <div className="flex items-center gap-3">
-              {socialLinks.map(({ label, mark }) => (
+              {socialLinks.map(({ label, icon: Icon }) => (
                 <a
                   key={label}
                   href="#contact"
                   aria-label={label}
                   className="inline-flex size-10 items-center justify-center rounded-full border border-white/72 bg-white/6 text-white transition hover:bg-white/18"
                 >
-                  <SocialIcon mark={mark} />
+                  <Icon className="size-4" />
                 </a>
               ))}
             </div>

@@ -20,33 +20,21 @@ export default function Home() {
         <SpecialtySection />
         <ProjectsSection />
         <div className="relative overflow-hidden bg-white">
-          <div
+          <svg
             aria-hidden="true"
-            className="pointer-events-none absolute -right-[34rem] top-24 z-0 hidden h-[62rem] w-[71rem] bg-[#c7defb] md:block lg:-right-[24rem] lg:top-28"
-            style={{
-              WebkitMaskImage:
-                "url('/images/timeline/timeline-flow-vector.svg')",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskSize: "100% 100%",
-              maskImage: "url('/images/timeline/timeline-flow-vector.svg')",
-              maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-            }}
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -left-20 bottom-24 z-0 hidden h-[62rem] w-[20rem] bg-[#c7defb] md:block lg:-left-12 lg:bottom-28"
-            style={{
-              WebkitMaskImage:
-                "url('/images/timeline/timeline-flow-vector-edge.svg')",
-              WebkitMaskRepeat: "no-repeat",
-              WebkitMaskSize: "100% 100%",
-              maskImage:
-                "url('/images/timeline/timeline-flow-vector-edge.svg')",
-              maskRepeat: "no-repeat",
-              maskSize: "100% 100%",
-            }}
-          />
+            className="pointer-events-none absolute inset-x-0 top-12 z-0 hidden h-[calc(100%-5rem)] w-full md:block"
+            viewBox="0 0 1440 2200"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M1555 10C1328 93 1323 308 1320 556C1316 877 1235 1008 1033 1058C804 1115 656 956 443 1001C241 1044 170 1231 122 1422C61 1663 98 1853 -130 1944"
+              fill="none"
+              stroke="#C7DEFB"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="128"
+            />
+          </svg>
           <TimelineSection />
           <TestimonialsSection />
         </div>

@@ -1,14 +1,7 @@
-import { Camera, Code2, Globe2, PenTool } from "lucide-react";
 import Image from "next/image";
 
+import { socialLinks } from "@/components/icons/social-icons";
 import { Button } from "@/components/ui/button";
-
-const socialLinks = [
-  { label: "Website", icon: Globe2 },
-  { label: "Gallery", icon: Camera },
-  { label: "Design", icon: PenTool },
-  { label: "Code", icon: Code2 },
-];
 
 export function ContactSection() {
   return (

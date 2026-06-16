@@ -1,36 +1,93 @@
-import { BriefcaseBusiness } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 import Image from "next/image";
 
 const experiences = [
   {
-    company: "Dribbble",
+    company: "Adobe",
+    logo: "/images/brand/Adobe-Svg-Logo.svg",
     role: "Frontend Developer",
     period: "2025 - Present",
     image: "/images/timeline/Timeline-1.png",
-    accent: "#ea4c89",
+    imagePosition: "left",
   },
   {
-    company: "Adobe",
+    company: "Dribbble",
+    logo: "/images/brand/Dribble-Svg-Logo.svg",
     role: "Frontend Developer",
     period: "2025 - Present",
     image: "/images/timeline/Timeline-2.png",
-    accent: "#fa0f00",
+    imagePosition: "right",
   },
   {
-    company: "Upwork",
+    company: "Dropbox",
+    logo: "/images/brand/Drop-Box-Svg-Logo.svg",
     role: "Frontend Developer",
     period: "2025 - Present",
     image: "/images/timeline/Timeline-3.png",
-    accent: "#14a800",
+    imagePosition: "left",
   },
   {
-    company: "Paypal",
+    company: "PayPal",
+    logo: "/images/brand/Paypal-Svg-Logo.svg",
     role: "Frontend Developer",
     period: "2025 - Present",
     image: "/images/timeline/Timeline-4.png",
-    accent: "#2f8cff",
+    imagePosition: "right",
   },
-];
+] as const;
+
+function ExperienceImage({
+  company,
+  image,
+}: {
+  company: string;
+  image: string;
+}) {
+  return (
+    <Image
+      src={image}
+      alt={`${company} team collaboration`}
+      width={552}
+      height={285}
+      className="aspect-[552/285] w-full rounded-[8px] object-cover shadow-[0_18px_45px_rgba(12,18,32,.07)]"
+    />
+  );
+}
+
+function ExperienceCard({
+  company,
+  logo,
+  period,
+  role,
+}: {
+  company: string;
+  logo: string;
+  period: string;
+  role: string;
+}) {
+  return (
+    <article className="flex min-h-[17.8125rem] flex-col justify-center rounded-[8px] border border-[#e8edf3] bg-white p-6 text-left shadow-[0_18px_45px_rgba(12,18,32,.08)] sm:p-8">
+      <div className="flex items-center gap-2 text-sm font-extrabold text-[#171922]">
+        <CalendarDays className="size-4 fill-[#2f8cff]/20 text-[#2f8cff]" />
+        <span>{period}</span>
+      </div>
+      <Image
+        src={logo}
+        alt={`${company} logo`}
+        width={97}
+        height={35}
+        className="mt-4 h-8 w-[7.25rem] object-contain object-left"
+      />
+      <h3 className="mt-4 text-2xl font-extrabold text-[#171922]">{role}</h3>
+      <p className="mt-4 text-sm leading-7 text-[#202430]">
+        Builds responsive and high-performance web applications with clean,
+        maintainable code. Expert in translating UI/UX designs into
+        pixel-perfect interfaces using modern frameworks. Focused on optimizing
+        performance, accessibility, and seamless user experiences
+      </p>
+    </article>
+  );
+}
 
 export function TimelineSection() {
   return (
@@ -43,53 +100,41 @@ export function TimelineSection() {
           A timeline of companies and roles that helped shape my skills.
         </h2>
 
-        <div className="mt-10 grid gap-5 text-left md:grid-cols-2 md:gap-6">
+        <div className="relative mt-10 grid gap-8 md:mt-14 md:gap-6">
+          <div
+            aria-hidden="true"
+            className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-[#d9dee7] md:block"
+          />
           {experiences.map((item, index) => (
-            <article
+            <div
               key={`${item.company}-${index}`}
-              className={`flex overflow-hidden rounded-[8px] border border-[#e8edf3] bg-white shadow-[0_18px_45px_rgba(12,18,32,.08)] ${
-                index % 2 === 1 ? "md:translate-y-12" : ""
-              } flex-col`}
+              className="relative grid gap-5 md:grid-cols-2 md:items-center md:gap-x-20"
             >
-              <Image
-                src={item.image}
-                alt={`${item.company} team collaboration`}
-                width={552}
-                height={285}
-                className={`aspect-[552/285] w-full object-cover ${
-                  index % 2 === 1 ? "md:order-2" : ""
+              <span
+                aria-hidden="true"
+                className={`absolute left-1/2 top-1/2 z-20 hidden size-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-[7px] md:block ${
+                  index === 0
+                    ? "border-[#d7eaff] bg-[#2f8cff]"
+                    : "border-[#e3e6eb] bg-[#a7adb6]"
                 }`}
               />
-              <div className={`p-6 ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                <div className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 grid size-9 shrink-0 place-items-center rounded-[8px] text-white"
-                    style={{ backgroundColor: item.accent }}
-                  >
-                    <BriefcaseBusiness className="size-4" aria-hidden="true" />
-                  </span>
-                  <div>
-                    <p className="text-xs font-bold text-[#8c929f]">
-                      {item.period}
-                    </p>
-                    <p
-                      className="mt-1 text-sm font-extrabold"
-                      style={{ color: item.accent }}
-                    >
-                      {item.company}
-                    </p>
-                    <h3 className="mt-2 text-xl font-extrabold text-[#171922]">
-                      {item.role}
-                    </h3>
+
+              {item.imagePosition === "left" ? (
+                <>
+                  <ExperienceImage company={item.company} image={item.image} />
+                  <ExperienceCard {...item} />
+                </>
+              ) : (
+                <>
+                  <div className="md:order-2">
+                    <ExperienceImage company={item.company} image={item.image} />
                   </div>
-                </div>
-                <p className="mt-4 text-sm leading-7 text-[#606a78]">
-                  Built responsive and high-performance web applications with
-                  clean, maintainable code. I focus on translating UI/UX designs
-                  into polished interfaces across platforms and workflows.
-                </p>
-              </div>
-            </article>
+                  <div className="md:order-1">
+                    <ExperienceCard {...item} />
+                  </div>
+                </>
+              )}
+            </div>
           ))}
         </div>
       </div>
