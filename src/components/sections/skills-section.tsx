@@ -50,7 +50,7 @@ export function SkillsSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%] w-full select-none object-cover object-bottom opacity-70"
       />
       <div className="relative mx-auto max-w-[1184px]">
-        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-white/55 px-4 text-xs font-semibold text-white/82">
+        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-white/55 px-4 text-xs font-black text-white/82">
           Skillset
         </p>
         <h2 className="mx-auto mt-3 max-w-full text-[20px] font-extrabold leading-tight text-white sm:text-3xl md:whitespace-nowrap md:text-[38px]">

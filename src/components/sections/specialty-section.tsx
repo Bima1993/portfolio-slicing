@@ -24,7 +24,7 @@ export function SpecialtySection() {
   return (
     <section className="bg-white px-4 py-16 text-center sm:px-6 md:py-24">
       <div className="mx-auto max-w-[1184px]">
-        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
+        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-black text-[#6f7785]">
           Superiority
         </p>
         <h2 className="mx-auto mt-5 max-w-[780px] text-[26px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[40px]">

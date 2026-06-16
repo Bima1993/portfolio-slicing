@@ -15,12 +15,12 @@ export function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(120deg, rgba(0, 234, 255, 1) 0%, #0758b0 20%, #080724 52%, #10061f 100%)",
+            "radial-gradient(72% 52% at 0% 66%, rgba(0, 234, 255, .92) 0%, rgba(5, 101, 220, .58) 36%, transparent 68%), radial-gradient(70% 54% at 100% 68%, rgba(112, 101, 184, .76) 0%, rgba(49, 38, 104, .62) 38%, transparent 72%), linear-gradient(180deg, #0d0a2f 0%, #0c0b36 20%, #08156d 40%, #0d2db3 58%, #26aaf0 80%, #bdd9fb 100%)",
         }}
       />
-      <div className="pointer-events-none absolute -left-[36rem] top-28 z-0 h-[72rem] w-[72rem] rounded-full bg-[rgba(0,234,255,1)] opacity-100 blur-[320px] md:-left-[40rem] md:top-36 md:h-[82rem] md:w-[82rem]" />
+      <div className="pointer-events-none absolute -left-[34rem] top-[19rem] z-0 h-[66rem] w-[66rem] rounded-full bg-[rgba(0,234,255,.9)] opacity-85 blur-[300px] md:-left-[40rem] md:top-36 md:h-[82rem] md:w-[82rem] md:opacity-100 md:blur-[320px]" />
       <div className="pointer-events-none absolute -right-72 top-40 z-0 h-[42rem] w-[42rem] rounded-full bg-[#4d3589] opacity-70 blur-[130px] md:-right-80 md:top-52 md:h-[54rem] md:w-[54rem]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35rem] bg-[linear-gradient(180deg,transparent_0%,rgba(0,234,255,.42)_55%,rgba(186,218,255,.82)_100%)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35rem] bg-[linear-gradient(180deg,transparent_0%,rgba(0,234,255,.22)_50%,rgba(186,218,255,.78)_100%)]" />
       <Image
         src="/images/hero/top-pattern.svg"
         alt=""
@@ -47,15 +47,15 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <h1 className="max-w-[361px] text-[39px] font-black leading-[1.06] tracking-normal text-white sm:max-w-xl sm:text-[56px] md:max-w-[640px] md:text-[64px] lg:text-[64px]">
+          <h1 className="max-w-[361px] text-[35px] font-black leading-[1.08] tracking-normal text-white sm:max-w-xl sm:text-[56px] md:max-w-[640px] md:text-[64px] md:leading-[1.06] lg:text-[64px]">
             <span className="mb-1 inline-block bg-[#f7a51b] px-1.5 text-[#080717]">
               Crafting
             </span>
-            <span className="block">Interfaces, One</span>
-            <span className="block">Line at a Time</span>
+            <span> Interfaces,</span>
+            <span className="block">One Line at a Time</span>
           </h1>
 
-          <p className="mt-8 max-w-sm text-sm font-medium leading-7 text-white/84 sm:max-w-[540px] sm:text-base md:mt-9 md:text-xl md:leading-9">
+          <p className="mt-5 max-w-[335px] text-base font-medium leading-7 text-white/84 sm:max-w-[540px] md:mt-9 md:text-xl md:leading-9">
             Build fast, accessible, and responsive web experiences that users
             love.
           </p>

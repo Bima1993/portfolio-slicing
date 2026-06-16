@@ -30,7 +30,7 @@ export function TestimonialsSection() {
       <div className="mx-auto max-w-[1184px]">
         <div className="flex items-end justify-between gap-6">
           <div>
-            <p className="flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
+            <p className="flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-black text-[#6f7785]">
               Testimony
             </p>
             <h2 className="mt-5 max-w-none whitespace-nowrap text-[18px] font-extrabold leading-tight text-[#171922] min-[360px]:text-[20px] sm:text-3xl md:text-[34px]">

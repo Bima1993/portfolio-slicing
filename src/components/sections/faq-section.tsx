@@ -73,7 +73,7 @@ export function FaqSection() {
 
       <div className="relative z-10 mx-auto max-w-[1064px] rounded-[22px] border-[10px] border-[#dceaff]/70 bg-white p-5 text-left shadow-[0_28px_80px_rgba(0,24,72,.28)] sm:p-8 md:p-10">
         <div className="text-center">
-          <p className="mx-auto flex h-6 w-fit items-center rounded-full border border-[#e1e6ef] px-3 text-[10px] font-semibold text-[#6f7785]">
+          <p className="mx-auto flex h-6 w-fit items-center rounded-full border border-[#e1e6ef] px-3 text-[10px] font-black text-[#6f7785]">
             FAQ
           </p>
           <h2 className="mx-auto mt-1 max-w-md text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl">

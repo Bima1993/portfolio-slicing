@@ -93,7 +93,7 @@ export function TimelineSection() {
   return (
     <section className="relative z-10 px-4 py-16 sm:px-6 md:py-24">
       <div className="relative mx-auto max-w-[1064px] text-center">
-        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-semibold text-[#6f7785]">
+        <p className="mx-auto flex h-7 w-fit items-center justify-center rounded-full border border-[#dce2ec] px-4 text-xs font-black text-[#6f7785]">
           Work Experience
         </p>
         <h2 className="mx-auto mt-5 max-w-2xl text-[22px] font-extrabold leading-tight text-[#171922] sm:text-3xl md:text-[34px]">
