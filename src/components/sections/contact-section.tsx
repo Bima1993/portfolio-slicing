@@ -18,9 +18,8 @@ const messagePopups = {
   },
   success: {
     image: "/images/contact/success-3d-envelope.png",
-    title: "Message Ready to Send",
-    description:
-      "Your email client has been opened with the message draft. Please send it from there.",
+    title: "Got Your Message!",
+    description: "Really appreciate you reaching out. I'll be in touch soon.",
     buttonLabel: "Back to Home",
   },
 };
