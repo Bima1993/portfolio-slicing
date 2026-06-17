@@ -36,10 +36,46 @@ const testimonials = [
   },
 ];
 
+type Testimonial = (typeof testimonials)[number];
+
+function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+  return (
+    <article className="flex h-full min-h-[25rem] flex-col rounded-[8px] border border-[#e8edf3] bg-white p-6 text-center shadow-[0_18px_45px_rgba(12,18,32,.07)] sm:p-8 md:min-h-[24rem] md:p-6 lg:p-8">
+      <Image
+        src={testimonial.avatar}
+        alt={`${testimonial.name} avatar`}
+        width={80}
+        height={80}
+        className="mx-auto size-20 rounded-full object-cover md:size-[72px] lg:size-20"
+      />
+      <div className="mt-6 flex justify-center gap-1 text-[#fff45d]">
+        {Array.from({ length: 5 }).map((_, index) => (
+          <Star key={index} className="size-5 fill-current" aria-hidden="true" />
+        ))}
+      </div>
+      <blockquote className="mx-auto mt-6 max-w-[35rem] flex-1 text-base font-semibold leading-8 text-[#171922] md:text-sm md:leading-7 lg:text-base lg:leading-8">
+        &quot;{testimonial.quote}&quot;
+      </blockquote>
+      <div className="mt-8">
+        <p className="text-base font-extrabold text-[#171922]">
+          &mdash; {testimonial.name}
+        </p>
+        <p className="mt-1 text-xs font-medium leading-5 text-[#7b8491]">
+          {testimonial.role}
+        </p>
+      </div>
+    </article>
+  );
+}
+
 export function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const activeTestimonial = testimonials[activeIndex];
+  const visibleDesktopTestimonials = Array.from(
+    { length: 3 },
+    (_, offset) => testimonials[(activeIndex + offset) % testimonials.length],
+  );
 
   function showTestimonial(step: number) {
     setDirection(step);
@@ -50,7 +86,10 @@ export function TestimonialsSection() {
   }
 
   return (
-    <section className="relative z-10 px-4 py-16 sm:px-6 md:py-24">
+    <section
+      id="testimonials"
+      className="relative z-10 px-4 py-16 sm:px-6 md:py-24"
+    >
       <div className="mx-auto max-w-[1184px]">
         <div className="flex flex-col items-center gap-6 text-center md:flex-row md:items-end md:justify-between md:text-left">
           <div>
@@ -82,46 +121,42 @@ export function TestimonialsSection() {
           </div>
         </div>
 
-        <div className="relative mt-9 overflow-hidden">
+        <div className="relative mt-9 overflow-hidden md:hidden">
           <AnimatePresence custom={direction} initial={false} mode="wait">
-            <motion.article
-              key={activeTestimonial.name}
+            <motion.div
+              key={`mobile-${activeTestimonial.name}`}
               custom={direction}
               initial={{ opacity: 0, x: direction * 40 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: direction * -40 }}
               transition={{ duration: 0.28, ease: "easeOut" }}
-              className="mx-auto max-w-[42rem] rounded-[8px] border border-[#e8edf3] bg-white p-6 text-center shadow-[0_18px_45px_rgba(12,18,32,.07)] sm:p-8"
+              className="mx-auto max-w-[42rem]"
               aria-live="polite"
             >
-              <Image
-                src={activeTestimonial.avatar}
-                alt={`${activeTestimonial.name} avatar`}
-                width={80}
-                height={80}
-                className="mx-auto size-20 rounded-full object-cover"
-              />
-              <div className="mt-6 flex justify-center gap-1 text-[#fff45d]">
-                {Array.from({ length: 5 }).map((_, index) => (
-                  <Star
-                    key={index}
-                    className="size-5 fill-current"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-              <blockquote className="mx-auto mt-6 max-w-[35rem] text-base font-semibold leading-8 text-[#171922]">
-                &quot;{activeTestimonial.quote}&quot;
-              </blockquote>
-              <div className="mt-8">
-                <p className="text-base font-extrabold text-[#171922]">
-                  &mdash; {activeTestimonial.name}
-                </p>
-                <p className="mt-1 text-xs font-medium leading-5 text-[#7b8491]">
-                  {activeTestimonial.role}
-                </p>
-              </div>
-            </motion.article>
+              <TestimonialCard testimonial={activeTestimonial} />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="relative mt-9 hidden overflow-hidden md:block">
+          <AnimatePresence custom={direction} initial={false} mode="wait">
+            <motion.div
+              key={`desktop-${activeIndex}`}
+              custom={direction}
+              initial={{ opacity: 0, x: direction * 52 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction * -52 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="grid grid-cols-3 gap-5 lg:gap-6"
+              aria-live="polite"
+            >
+              {visibleDesktopTestimonials.map((testimonial) => (
+                <TestimonialCard
+                  key={testimonial.name}
+                  testimonial={testimonial}
+                />
+              ))}
+            </motion.div>
           </AnimatePresence>
         </div>
 

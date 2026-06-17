@@ -138,8 +138,8 @@ export function AboutSection() {
           </article>
 
           <a
-            href="mailto:edwinanderson@email.com"
-            aria-label="Email Edwin Anderson"
+            href="#contact"
+            aria-label="Go to contact section"
             className="flex min-h-32 items-center justify-center rounded-[12px] bg-[#2f8cff] text-white shadow-[0_18px_45px_rgba(47,140,255,.24)] transition hover:bg-[#1677ee] lg:h-full lg:min-h-0 lg:w-full"
           >
             <Mail className="size-9 fill-white/12" aria-hidden="true" />
